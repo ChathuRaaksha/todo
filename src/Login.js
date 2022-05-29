@@ -50,7 +50,7 @@ export default function Login() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </Form.Group>
-          <Link to="/header">
+          <Link to="/materialtable">
           <Button block="true" size="lg" type="submit" disabled={!validateForm()}>
             Login
           </Button></Link>
