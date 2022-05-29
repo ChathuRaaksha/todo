@@ -3,21 +3,23 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import BannerImage from '../src/assets/Todowall2.jpg';
 import "./styles/Login.css";
+import { useNavigate } from 'react-router-dom';
 import "./styles/Home.css";
-import {Link} from 'react-router-dom';
+
 export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-  
-    function validateForm() {
-      if(email=="admin" && password == "admin"){
-   
+    const navigate = useNavigate();
+    const validateForm=() =>{
+      if(email==="admin" && password === "admin"){
+        navigate('/materialtable');
+       // alert(' Username or Password Match');
     }
     else{
-       // alert('Invalid Username or Password');
-        return;
+     alert('Invalid Username or Password');
+     navigate('/');
     }
-      return email.length > 0 && password.length > 0;
+     // return email.length > 0 && password.length > 0;
       
       
       
@@ -50,10 +52,10 @@ export default function Login() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </Form.Group>
-          <Link to="/materialtable">
-          <Button block="true" size="lg" type="submit" disabled={!validateForm()}>
+          
+          <Button block="true" size="lg" onClick={()=>validateForm()} disabled={!email.length || !password.length}>
             Login
-          </Button></Link>
+          </Button>
           
         </Form>
       </div></div>
