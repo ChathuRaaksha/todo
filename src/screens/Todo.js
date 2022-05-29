@@ -5,6 +5,7 @@ import '../styles/Todo.css';
 function Todo() {
   const [Users, fetchUsers] = useState([])
   const [Usersid, fetchUsers2] = useState([])
+  const result=[]
   const getData = () => {
     fetch('https://jsonplaceholder.typicode.com/todos')
       .then((res) => res.json())
@@ -18,8 +19,8 @@ function Todo() {
       .then((res) => res.json())
       .then((res) => {
         console.log(res)
-        
-        fetchUsers2(res)
+        result.push(res)
+        fetchUsers2("["+res+"]")
         alert(JSON.stringify(Usersid))
       })
   }
@@ -40,7 +41,7 @@ function Todo() {
                     <th>Title</th>
                     <th>Completed</th>
                 </tr>
-                {Users.map((item, i) => (
+                {result.map((item, i) => (
                     <tr key={i}>
                        <td onClick={() => sendData(item.id)}>{item.userId}</td> 
                         <td>{item.id}</td>
@@ -51,6 +52,8 @@ function Todo() {
             </tbody>
  
         </>
+
+        
     );
   
   

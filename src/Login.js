@@ -1,13 +1,22 @@
 import React,{ useState } from 'react'
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import BannerImage from '../src/assets/Todowall2.jpg';
 import "./styles/Login.css";
+import "./styles/Home.css";
 import {Link} from 'react-router-dom';
 export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
   
     function validateForm() {
+      if(email=="admin" && password == "admin"){
+   
+    }
+    else{
+       // alert('Invalid Username or Password');
+        return;
+    }
       return email.length > 0 && password.length > 0;
       
       
@@ -17,16 +26,11 @@ export default function Login() {
     function handleSubmit(event) {
       event.preventDefault();
       return
-       /*  if(email=="admin" && password == "admin"){
-            alert('Invalid Udfdfdfdfdfdsername or Password');
-        }
-        else{
-            alert('Invalid Username or Password');
-            return;
-        } */
+       /*   */
     }
   
     return (
+      <div className='home'style={{backgroundImage:`url(${BannerImage})`}}>
       <div className="Login">
         <Form onSubmit={handleSubmit}>
           <Form.Group size="lg" controlId="email">
@@ -52,6 +56,6 @@ export default function Login() {
           </Button></Link>
           
         </Form>
-      </div>
+      </div></div>
     );
   }

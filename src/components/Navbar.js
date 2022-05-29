@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import Logo from '../assets/todo.png';
+import Logo from '../assets/Todo6.png';
 import {Link} from 'react-router-dom';
 import ReorderIcon from '@mui/icons-material/Reorder';
 import '../styles/Navbarr.css';
@@ -22,13 +22,13 @@ const toggleNavBar=()=>{
             <img src={Logo}  />
             <div className='hiddenLinks'>
          
-            <Link to="/todo">Todo</Link>
+            <Link to="/materialtable">Todo</Link>
             <Link to="/login">Logout</Link>
             </div>
         </div>
         <div className='rightSide'>
-       
-            <Link to="/todo">Todo</Link>
+        <Link to="/materialtable">Todo</Link>
+           
             <Link to="/">Logout</Link>
              <button onClick={toggleNavBar}>
                 <ReorderIcon/>
